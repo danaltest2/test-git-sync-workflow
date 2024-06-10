@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: push to on-prem git repo
         run: |
           echo "push repo to on-prem git"
