@@ -1,0 +1,16 @@
+name: Sync repository workflow
+
+on:
+  workflow_call:   
+  
+jobs:
+  reusable_workflow_job:
+    name: checkout test
+    runs-on: self-hosted
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: push to on-prem git repo
+        run: |
+          echo "push repo to on-prem git"
+          git push http://${{ GITLAB_ACCESS_TOKEN_NAME }}:${{ GITLAB_ADDRESS }}@${{ GITLAB_ADDRESS }}"/${{ GITLAB_GROUP }}/${{ github.repository }}.git ${{ github.ref_name	}}
