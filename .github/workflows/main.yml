@@ -12,7 +12,5 @@ jobs:
         uses: actions/checkout@v4
       - name: push to on-prem git repo
         run: |
-          ls -laR
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           echo "push repo to on-prem git"
-          git push http://${{ secrets.GITLAB_ACCESS_TOKEN_NAME }}:${{ secrets.GITLAB_ADDRESS }}@${{ secrets.GITLAB_ADDRESS }}/${{ secrets.GITLAB_GROUP }}/${{ github.repository }}.git ${{ github.ref_name	}}
+          git push http://${{ secrets.GITLAB_ACCESS_TOKEN_NAME }}:${{ secrets.GITLAB_ADDRESS }}@${{ secrets.GITLAB_ADDRESS }}/${{ github.repository }}.git ${{ github.ref_name	}}
